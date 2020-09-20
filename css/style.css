@@ -1,0 +1,127 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap");
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    color: #000000aa;
+    background: url("../images/background.webp") no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+#wrap {
+    max-height: calc(100vh);
+    width: 85%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#searchWrap {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    position: relative;
+    margin: 5rem auto 0 auto;
+}
+#searchbox {
+    display: flex;
+}
+#searchbox > * {
+    padding: 0.7rem;
+    border-radius: 0;
+    border: 0.1rem solid #3b9696;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+}
+#searchTerm {
+    border-right: none;
+    width: 100%;
+
+    color: #3b9696;
+    padding-left: 0.3rem;
+}
+
+#searchbox > *:focus {
+    outline: none;
+}
+
+#searchButton {
+    background-color: #3b9696;
+    color: white;
+
+    /* font-family: "Open Sans", sans-serif; */
+    cursor: pointer;
+    padding: 0.1rem 1rem;
+}
+
+#searchButton:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #3b9696;
+    outline: none;
+}
+
+#searchButton:active {
+    font-weight: 600;
+    padding: 0.2rem 0.9rem 0 1.1rem;
+}
+
+#defaultCity {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+#defaultCity div {
+    padding: 0.5rem 1rem;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+}
+
+#defaultCity div:hover {
+    cursor: pointer;
+    color: #3b9696;
+}
+
+#defaultCity div:first-of-type {
+    padding-left: 0;
+}
+
+.title {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+li {
+    min-width: 180px;
+    flex-grow: 1;
+    list-style: none;
+    border-left: 2px solid #3b9696;
+    border-right: 2px solid #3b9696;
+    text-align: center;
+    margin-bottom: 5rem;
+    margin-left: -2px;
+    font-family: "Oswald", sans-serif;
+    font-weight: 500;
+}
+
+li #date {
+    color: #3b9696;
+    font-weight: 300;
+}
+
+li #Maximum {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.infoType img {
+    transform: scale(1.2);
+}
