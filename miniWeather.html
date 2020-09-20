@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>MiniWeather</title>
+        <link href="css/style.css" rel="stylesheet" type="text/css" />
+        <style></style>
+    </head>
+    <body>
+        <div id="app">
+            <div id="wrap">
+                <div id="searchWrap">
+                    <div id="searchbox">
+                        <input
+                            type="text"
+                            id="searchTerm"
+                            :placeholder="placeholder"
+                            v-model="userIn"
+                            @keyup.13="getWeatherByCitySearch(userIn)"
+                        />
+                        <input
+                            type="button"
+                            id="searchButton"
+                            value="SEARCH"
+                            @click="getWeatherByCitySearch(userIn)"
+                        />
+                    </div>
+                    <div id="defaultCity">
+                        <div
+                            @click="getWeatherByDefaultCity('New York','349727')"
+                        >
+                            New York, US
+                        </div>
+                        <div
+                            @click="getWeatherByDefaultCity('London','328328')"
+                        >
+                            London, UK
+                        </div>
+                        <div
+                            @click="getWeatherByDefaultCity('Beijing','101924')"
+                        >
+                            Beijing, CN
+                        </div>
+                        <div
+                            @click="getWeatherByDefaultCity('Berlin','178087')"
+                        >
+                            Berlin, DE
+                        </div>
+                        <div
+                            @click="getWeatherByDefaultCity('Moscow','294021')"
+                        >
+                            Moscow, RU
+                        </div>
+                    </div>
+                    <h1 class="title">{{ city }}</h1>
+                </div>
+                <div id="weatherWrap">
+                    <ul class="weatherList">
+                        <li v-for="item in weather" v-if="weather.length > 0">
+                            <div class="infoDate" v-if="weather.length > 0">
+                                <span>
+                                    {{ weekday[new Date(item.Date).getDay()] }}
+                                </span>
+                                <span id="date">
+                                    {{ new Date(item.Date).getDate() }}/{{ new
+                                    Date(item.Date).getMonth() + 1 }}
+                                </span>
+                            </div>
+                            <div class="infoType">
+                                <!-- Daytime weather -->
+                                <div
+                                    id="daytime"
+                                    v-if="new Date().getHours() > 6 && new Date().getHours() < 18"
+                                >
+                                    <img
+                                        :src="'images/' +  item.Day.Icon  + '-s.png'"
+                                        :alt="item.Day.IconPhrase"
+                                        :title="item.Day.IconPhrase"
+                                    />
+                                    <div class="infoTitle">
+                                        {{ item.Day.IconPhrase }}
+                                    </div>
+                                </div>
+
+                                <!-- Night weather -->
+                                <div
+                                    id="night"
+                                    v-if="new Date().getHours() < 6 || new Date().getHours() > 18"
+                                >
+                                    <img
+                                        :src="'images/' +  item.Night.Icon  + '-s.png'"
+                                        :alt="item.Night.IconPhrase"
+                                        :title="item.Night.IconPhrase"
+                                    />
+                                    <div class="infoTitle">
+                                        {{ item.Night.IconPhrase }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="infoTemp">
+                                <span id="Maximum">
+                                    {{ item.Temperature.Maximum.Value }}°
+                                </span>
+                                /
+                                <span id="Minimum">
+                                    {{ item.Temperature.Minimum.Value }}°
+                                </span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- axios -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <!-- development version, includes helpful console warnings -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="js/script.js"></script>
+    </body>
+</html>
