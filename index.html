@@ -53,18 +53,27 @@
                             Moscow, RU
                         </div>
                     </div>
-                    <h1 class="title">{{ city }}</h1>
+                    <h1 class="title" v-text="city"></h1>
                 </div>
                 <div id="weatherWrap">
                     <ul class="weatherList">
                         <li v-for="item in weather" v-if="weather.length > 0">
                             <div class="infoDate" v-if="weather.length > 0">
-                                <span>
-                                    {{ weekday[new Date(item.Date).getDay()] }}
+                                <span
+                                    v-text="weekday[new Date(item.Date).getDay()]"
+                                >
                                 </span>
-                                <span id="date">
-                                    {{ new Date(item.Date).getDate() }}/{{ new
-                                    Date(item.Date).getMonth() + 1 }}
+                                <span
+                                    id="date"
+                                    v-text="new Date(item.Date).getDate()+'/'"
+                                >
+                                </span>
+
+                                <span
+                                    id="date"
+                                    v-text="new
+                                Date(item.Date).getMonth()+1"
+                                >
                                 </span>
                             </div>
                             <div class="infoType">
@@ -78,9 +87,10 @@
                                         :alt="item.Day.IconPhrase"
                                         :title="item.Day.IconPhrase"
                                     />
-                                    <div class="infoTitle">
-                                        {{ item.Day.IconPhrase }}
-                                    </div>
+                                    <div
+                                        class="infoTitle"
+                                        v-text="item.Day.IconPhrase "
+                                    ></div>
                                 </div>
 
                                 <!-- Night weather -->
@@ -93,18 +103,22 @@
                                         :alt="item.Night.IconPhrase"
                                         :title="item.Night.IconPhrase"
                                     />
-                                    <div class="infoTitle">
-                                        {{ item.Night.IconPhrase }}
-                                    </div>
+                                    <div
+                                        class="infoTitle"
+                                        v-text="item.Night.IconPhrase"
+                                    ></div>
                                 </div>
                             </div>
                             <div class="infoTemp">
-                                <span id="Maximum">
-                                    {{ item.Temperature.Maximum.Value }}°
+                                <span
+                                    id="Maximum"
+                                    v-text="item.Temperature.Maximum.Value + '° /'"
+                                >
                                 </span>
-                                /
-                                <span id="Minimum">
-                                    {{ item.Temperature.Minimum.Value }}°
+                                <span
+                                    id="Minimum"
+                                    v-text="item.Temperature.Minimum.Value + '°'"
+                                >
                                 </span>
                             </div>
                         </li>

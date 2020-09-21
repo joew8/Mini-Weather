@@ -21,7 +21,7 @@ var app = new Vue({
         async getKeyByIp() {
             await axios
                 .get(
-                    "http://dataservice.accuweather.com/locations/v1/cities/ipaddress?apikey=6pB420Mf807ZuHYKd9xOh5rBNlKRvhRI&q=" +
+                    "https://dataservice.accuweather.com/locations/v1/cities/ipaddress?apikey=6pB420Mf807ZuHYKd9xOh5rBNlKRvhRI&q=" +
                         this.clientIp
                 )
                 .then((responce) => {
@@ -43,7 +43,7 @@ var app = new Vue({
             // Get the key of the city from the user input
             axios
                 .get(
-                    "http://dataservice.accuweather.com/locations/v1/cities/search?apikey=6pB420Mf807ZuHYKd9xOh5rBNlKRvhRI&q=" +
+                    "https://dataservice.accuweather.com/locations/v1/cities/search?apikey=6pB420Mf807ZuHYKd9xOh5rBNlKRvhRI&q=" +
                         input
                 )
                 .then((responce) => {
@@ -58,7 +58,7 @@ var app = new Vue({
             console.log("get weather by key " + Key);
             axios
                 .get(
-                    "http://dataservice.accuweather.com/forecasts/v1/daily/5day/" +
+                    "https://dataservice.accuweather.com/forecasts/v1/daily/5day/" +
                         Key +
                         "?apikey=6pB420Mf807ZuHYKd9xOh5rBNlKRvhRI&language=en&metric=true"
                 )
